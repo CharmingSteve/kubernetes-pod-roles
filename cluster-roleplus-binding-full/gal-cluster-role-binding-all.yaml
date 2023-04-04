@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: adminallbinding
+subjects:
+- kind: ServiceAccount
+  name: default # name of your service account
+  namespace: galtchinio # this is the namespace your service account is in
+roleRef: # referring to your ClusterRole created in the other file 
+  kind: ClusterRole
+  name: adminrole
+  apiGroup: rbac.authorization.k8s.io

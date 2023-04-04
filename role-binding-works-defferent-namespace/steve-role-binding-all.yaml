@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: steveadminallbinding
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: default # name of your service account
+  namespace: stevegindi # this is the namespace your service account is in
+roleRef: # referring to your Role created in the other file 
+  kind: Role
+  name: steveadminrole
+  apiGroup: rbac.authorization.k8s.io
